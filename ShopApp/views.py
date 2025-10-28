@@ -111,58 +111,58 @@ def admin_user(request):
     return render(request,"Admin_Login.html")
 
 
-# In views.py of the appropriate app (Frontend or ShopApp)
 
 
 
-# # In ShopApp/views.py
 
-# from django.contrib.auth import logout
-# from django.shortcuts import redirect
+# In ShopApp/views.py
 
-# def admin_logout(request):
-#     # If the user is logged in as a ShopApp user
-#     if request.user.is_authenticated:
-#         if hasattr(request.user, 'is_superuser'):  # This checks if the user is from ShopApp
-#             logout(request)  # Logout the ShopApp user
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
-#     # Clear the session data
-#     request.session.flush()
+def admin_logout(request):
+    # If the user is logged in as a ShopApp user
+    if request.user.is_authenticated:
+        if hasattr(request.user, 'is_superuser'):  # This checks if the user is from ShopApp
+            logout(request)  # Logout the ShopApp user
 
-#     # Redirect the user to the appropriate page after logout (e.g., login page)
-#     return redirect('login_user')  # Or redirect to Frontend index or ShopApp index as needed
+    # Clear the session data
+    request.session.flush()
+
+    # Redirect the user to the appropriate page after logout (e.g., login page)
+    return redirect('login_user')  # Or redirect to Frontend index or ShopApp index as needed
 
 
-# # Contact suggestion
+# Contact suggestion
 
-# def contact_suggestion(request):
-#     data = contactdb.objects.all()
-#     return render(request,"contactus_suggestionDisplay.html",{'data':data})
+def contact_suggestion(request):
+    data = contactdb.objects.all()
+    return render(request,"contactus_suggestionDisplay.html",{'data':data})
 
-# def contact_suggestion_delete(request,del_id):
-#     deldata = contactdb.objects.filter(id=del_id)
-#     deldata.delete()
-#     return redirect(contact_suggestion)
-
-# # def bookingsss(request):
-# #     data = bookingdb.objects.all()
-# #     return render(request,"bookingsss.html",{'data':data})
-
-# from django.db.models import Sum, Count
+def contact_suggestion_delete(request,del_id):
+    deldata = contactdb.objects.filter(id=del_id)
+    deldata.delete()
+    return redirect(contact_suggestion)
 
 # def bookingsss(request):
-#     # Get all the booking data
 #     data = bookingdb.objects.all()
+#     return render(request,"bookingsss.html",{'data':data})
 
-#     # Get the total number of bookings (count)
-#     total_bookings = bookingdb.objects.count()
+from django.db.models import Sum, Count
 
-#     # Get the total revenue (sum of totalprice)
-#     total_revenue = bookingdb.objects.aggregate(Sum('totalprice'))['totalprice__sum'] or 0
+def bookingsss(request):
+    # Get all the booking data
+    data = bookingdb.objects.all()
 
-#     # Render the data in the template with the additional information
-#     return render(request, "bookingsss.html", {
-#         'data': data,
-#         'total_bookings': total_bookings,
-#         'total_revenue': total_revenue
-#     })
+    # Get the total number of bookings (count)
+    total_bookings = bookingdb.objects.count()
+
+    # Get the total revenue (sum of totalprice)
+    total_revenue = bookingdb.objects.aggregate(Sum('totalprice'))['totalprice__sum'] or 0
+
+    # Render the data in the template with the additional information
+    return render(request, "bookingsss.html", {
+        'data': data,
+        'total_bookings': total_bookings,
+        'total_revenue': total_revenue
+    })
