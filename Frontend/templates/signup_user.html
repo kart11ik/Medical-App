@@ -1,0 +1,300 @@
+
+
+<!--<!DOCTYPE html>-->
+<!--{% load static %}-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <title>Sign Up Form by Colorlib</title>-->
+
+<!--    &lt;!&ndash; Font Icon &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="{% static 'Login/fonts/material-icon/css/material-design-iconic-font.min.css' %}">-->
+
+<!--    &lt;!&ndash; Main css &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="{% static 'Login/css/style.css' %}">-->
+<!--</head>-->
+<!--<body>-->
+
+<!--    <div class="main">-->
+
+<!--        &lt;!&ndash; Sign up form &ndash;&gt;-->
+<!--        <section class="signup">-->
+<!--            <div class="container">-->
+<!--                <div class="signup-content">-->
+<!--                    <div class="signup-form">-->
+<!--                        <h2 class="form-title">Welcome</h2>-->
+<!--                        <h3 class="form-title">Sign up</h3>-->
+<!--                        <form method="POST" class="register-form" id="register-form" action="{% url 'signupdata' %}" enctype="multipart/form-data" onsubmit="return validateForm()">-->
+<!--                            {% csrf_token %}-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>-->
+<!--                                <input type="text" name="fullname" id="name" placeholder="Your Name" required />-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="email"><i class="zmdi zmdi-email"></i></label>-->
+<!--                                <input type="email" name="email" id="email" placeholder="Your Email" required />-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="username"><i class="zmdi zmdi-account"></i></label>-->
+<!--                                <input type="text" name="username" id="username" placeholder="Username" required />-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>-->
+<!--                                <input type="password" name="password" id="pass" placeholder="Password" required minlength="8" />-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required />-->
+<!--                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in <a href="#" class="term-service">Terms of service</a></label>-->
+<!--                            </div>-->
+<!--                            <div class="form-group form-button">-->
+<!--                                <button class="form-submit form-button" type="submit">Register</button>-->
+<!--                            </div>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                    <div class="signup-image">-->
+<!--                        <h1 style="text-align: center; font-family: 'Poppins', sans-serif; font-size: 3em; color: #4CAF50; font-weight: 600; margin-top: 20px;">-->
+<!--                            MEDIMART-->
+<!--                        </h1>-->
+<!--                        <a href="{% url 'login_user' %}" class="signup-image-link">Click here to login</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+
+<!--    </div>-->
+
+<!--    &lt;!&ndash; JS &ndash;&gt;-->
+<!--    <script src="{% static 'Login/vendor/jquery/jquery.min.js' %}"></script>-->
+<!--    <script src="{% static 'Login/js/main.js' %}"></script>-->
+
+<!--    <script>-->
+<!--        function validateForm() {-->
+<!--            const username = document.getElementById("username").value; // Fetch username-->
+<!--            const password = document.getElementById("pass").value; // Fetch password-->
+
+<!--            // Check if password is at least 8 characters-->
+<!--            if (password.length < 8) {-->
+<!--                alert("Password must be at least 8 characters long.");-->
+<!--                return false;-->
+<!--            }-->
+
+<!--            // Alert user with the entered username and password-->
+<!--            alert("Please make sure to copy your username and password:\nUsername: " + username + "\nPassword: " + password);-->
+<!--            return true;-->
+<!--        }-->
+<!--    </script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--{% load static %}-->
+<!--<html lang="en">-->
+
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <title>Sign Up</title>-->
+
+<!--    &lt;!&ndash; Required meta tags &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="{% static 'vendors/feather/feather.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'vendors/ti-icons/css/themify-icons.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'css/vertical-layout-light/style.css' %}">-->
+<!--    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" />-->
+<!--</head>-->
+
+<!--<body>-->
+<!--    <div class="container-scroller">-->
+<!--        <div class="container-fluid page-body-wrapper full-page-wrapper">-->
+<!--            <div class="content-wrapper d-flex align-items-center auth px-0">-->
+<!--                <div class="row w-100 mx-0">-->
+<!--                    <div class="col-lg-4 mx-auto">-->
+<!--                        <div class="auth-form-light text-left py-5 px-4 px-sm-5">-->
+<!--                            <div class="brand-logo">-->
+<!--                                <h2>Medimart Systems</h2>-->
+<!--                            </div>-->
+<!--                            <h4>Welcome! Let's get started</h4>-->
+<!--                            <h6 class="font-weight-light">Sign up to create an account.</h6>-->
+<!--                            <form class="pt-3" method="post" action="{% url 'signupdata' %}" enctype="multipart/form-data">-->
+<!--                                {% csrf_token %}-->
+<!--                                <div class="form-group">-->
+<!--                                    <input required type="text" class="form-control form-control-lg" id="name" placeholder="Your Name" name="fullname">-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <input required type="email" class="form-control form-control-lg" id="email" placeholder="Your Email" name="email">-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <input required type="text" class="form-control form-control-lg" id="username" placeholder="Username" name="username">-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <input required type="password" class="form-control form-control-lg" id="pass" placeholder="Password" name="password" minlength="8">-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <input required type="checkbox" class="agree-term" id="agree-term" name="agree-term" />-->
+<!--                                    <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in <a href="#" class="term-service">Terms of service</a></label>-->
+<!--                                </div>-->
+<!--                                <div class="mt-3">-->
+<!--                                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">Register</button>-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                            <div class="text-center mt-4 font-weight-light">-->
+<!--                                Already have an account? <a href="{% url 'login_user' %}" class="text-primary">Login</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; plugins:js &ndash;&gt;-->
+<!--    <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>-->
+<!--    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+<!--    {% if messages %}-->
+<!--        {% for i in messages %}-->
+<!--            {% if i.tags == 'warning' %}-->
+<!--                <script>-->
+<!--                    swal('{{i}}' , '' , 'warning')-->
+<!--                </script>-->
+<!--            {% elif i.tags == 'error' %}-->
+<!--                <script>-->
+<!--                    swal('{{i}}' , '' , 'error')-->
+<!--                </script>-->
+<!--            {% elif i.tags == 'success' %}-->
+<!--                <script>-->
+<!--                    swal('{{i}}' , '' , 'success')-->
+<!--                </script>-->
+<!--            {% else %}-->
+<!--                <script>-->
+<!--                    swal('{{i}}' , '' , 'info')-->
+<!--                </script>-->
+<!--            {% endif %}-->
+<!--        {% endfor %}-->
+<!--    {% endif %}-->
+<!--</body>-->
+
+<!--</html>-->
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+
+    <!-- Required meta tags -->
+    <link rel="stylesheet" href="{% static 'vendors/feather/feather.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/ti-icons/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vertical-layout-light/style.css' %}">
+<!--    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" />-->
+
+    <!-- Custom styles for background -->
+    <style>
+        body {
+            background-image: url("{% static 'images/medbg.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container-scroller {
+            width: 100%;
+            height: 100%;
+        }
+
+        .auth-form-light {
+            background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for the form */
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-center auth px-0">
+                <div class="row w-100 mx-0">
+                    <div class="col-lg-4 mx-auto">
+                        <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                           <div style="text-align: center; width: 100%;">
+    <h2 style="font-size: 2.5em; letter-spacing: 5px; font-weight: 600; color: #4CAF50; font-family: 'Poppins', sans-serif; display: inline-block;">
+        M E D I M A R T
+    </h2>
+</div>
+<br>
+                            <h4>Welcome! Let's get started</h4>
+                            <h6 class="font-weight-light">create an account.</h6>
+                            <form class="pt-3" method="post" action="{% url 'signupdata' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input required type="text" class="form-control form-control-lg" id="name" placeholder="Your Name" name="fullname">
+                                </div>
+                                <div class="form-group">
+                                    <input required type="email" class="form-control form-control-lg" id="email" placeholder="Your Email" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <input required type="text" class="form-control form-control-lg" id="username" placeholder="Username" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <input required type="password" class="form-control form-control-lg" id="pass" placeholder="Password" name="password" minlength="8">
+                                </div>
+                                <div class="form-group">
+                                    <input required type="checkbox" class="agree-term" id="agree-term" name="agree-term" />
+                                    <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in <a href="#" class="term-service">Terms of service</a></label>
+                                </div>
+                                <div class="mt-3">
+                                    <button class="btn btn-block btn-success btn-lg font-weight-medium auth-form-btn" type="submit">Register</button>
+                                </div>
+                            </form>
+                            <div class="text-center mt-4 font-weight-light">
+                                Already have an account? <a href="{% url 'login_user' %}" class="text-primary">Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- plugins:js -->
+    <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {% if messages %}
+        {% for i in messages %}
+            {% if i.tags == 'warning' %}
+                <script>
+                    swal('{{i}}' , '' , 'warning')
+                </script>
+            {% elif i.tags == 'error' %}
+                <script>
+                    swal('{{i}}' , '' , 'error')
+                </script>
+            {% elif i.tags == 'success' %}
+                <script>
+                    swal('{{i}}' , '' , 'success')
+                </script>
+            {% else %}
+                <script>
+                    swal('{{i}}' , '' , 'info')
+                </script>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</body>
+
+</html>
