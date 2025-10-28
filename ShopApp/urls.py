@@ -20,12 +20,12 @@ urlpatterns = [
     path('product_delete/<int:dataid>/',views.product_delete,name="product_delete"),
 
     path('admin_user/',views.admin_user,name="admin_user"),
-    # path('adminuser/',views.adminuser,name="adminuser"),
+    path('adminuser/',views.adminuser,name="adminuser"),
     path('admin_logout/',views.admin_logout,name="admin_logout"),
 
     path('contact_suggestion/',views.contact_suggestion,name="contact_suggestion"),
     path('bookingsss/',views.bookingsss,name="bookingsss"),
     path('contact_suggestion_delete/<int:del_id>/',views.contact_suggestion_delete,name="contact_suggestion_delete"),
 
-    # path('login/', views.Userlogin, name='Userlogin'),
+    path('login/', views.Userlogin, name='Userlogin'),
 ]
